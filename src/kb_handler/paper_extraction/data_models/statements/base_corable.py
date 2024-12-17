@@ -1,7 +1,7 @@
 from pydantic import Field
 from typing import List
 
-from .base_statement import Statement
+from kb_handler.paper_extraction.data_models.statements.base_statement import Statement
 
 
 class Corable(Statement):

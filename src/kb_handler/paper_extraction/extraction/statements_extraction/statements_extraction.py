@@ -1,17 +1,17 @@
 import regex
 
-from ...data_models.statements.axiom import Axiom
-from ...data_models.statements.base_corable import Corable
-from ...data_models.statements.base_provable import Provable
-from ...data_models.statements.corollary import Corollary
-from ...data_models.statements.definition import Definition
-from ...data_models.statements.lemma import Lemma
-from ...data_models.statements.proof import Proof
-from ...data_models.statements.statements import Statements
-from ...data_models.statements.theorem import Theorem
-from ...utils.tex_processing import remove_tex_comments, expand_tex_restatables
+from kb_handler.paper_extraction.data_models.statements.axiom import Axiom
+from kb_handler.paper_extraction.data_models.statements.base_corable import Corable
+from kb_handler.paper_extraction.data_models.statements.base_provable import Provable
+from kb_handler.paper_extraction.data_models.statements.corollary import Corollary
+from kb_handler.paper_extraction.data_models.statements.definition import Definition
+from kb_handler.paper_extraction.data_models.statements.lemma import Lemma
+from kb_handler.paper_extraction.data_models.statements.proof import Proof
+from kb_handler.paper_extraction.data_models.statements.statements import Statements
+from kb_handler.paper_extraction.data_models.statements.theorem import Theorem
+from kb_handler.paper_extraction.utils.tex_processing import remove_tex_comments, expand_tex_restatables
 
-from ...config.config import (
+from kb_handler.paper_extraction.config.config import (
     DEFINITION,
     AXIOM,
     LEMMA,

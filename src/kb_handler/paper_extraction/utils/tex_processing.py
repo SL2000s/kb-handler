@@ -2,8 +2,8 @@ import regex
 
 from langchain.prompts.prompt import PromptTemplate
 
-from ..config.config import ITALICS_RE_SUBSTITUTION_PATTERN
-from ..config.llm_config import (
+from kb_handler.paper_extraction.config.config import ITALICS_RE_SUBSTITUTION_PATTERN
+from kb_handler.paper_extraction.config.llm_config import (
     PROMPT_TEMPLATE_FORMAT,
     PROMPT_TEMPLATE_TITLE,
     PROMPT_TEMPLATE_TEX2HTML,
@@ -11,7 +11,7 @@ from ..config.llm_config import (
     PROMPT_TEMPLATE_PROOF_EXPLANATION,
     GPT4O_ITALICS_PATTERN,
 )
-from ..utils.openai import llm_quest
+from kb_handler.paper_extraction.utils.openai import llm_quest
 
 
 LATEX_STATEMENT_TEMPLATE = """\\begin{{{statement_type}}}[{title}]

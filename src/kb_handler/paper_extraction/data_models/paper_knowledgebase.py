@@ -4,13 +4,13 @@ import warnings
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional
 
-from ..builders.paper_builder import build_arxiv_paper, dict_extraction2paper
-from ..data_models.paper import Paper
-from ..data_models.statements.base_provable import Provable
-from ..utils.tex_processing import statement2title
-from ..utils.utils import sanitize_filename
+from kb_handler.paper_extraction.builders.paper_builder import build_arxiv_paper, dict_extraction2paper
+from kb_handler.paper_extraction.data_models.paper import Paper
+from kb_handler.paper_extraction.data_models.statements.base_provable import Provable
+from kb_handler.paper_extraction.utils.tex_processing import statement2title
+from kb_handler.paper_extraction.utils.utils import sanitize_filename
 
-from ..config.config import (
+from kb_handler.paper_extraction.config.config import (
     STATEMENT_TYPES_METADATA,
     PAPER_URL_TEMPLATE,
     STATEMENT_URL_TEMPLATE,

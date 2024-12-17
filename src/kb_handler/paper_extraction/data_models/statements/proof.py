@@ -1,7 +1,7 @@
 from typing import Optional
 
-from .base_statement import Statement
-from ...utils.tex_processing import (
+from kb_handler.paper_extraction.data_models.statements.base_statement import Statement
+from kb_handler.paper_extraction.utils.tex_processing import (
     proof2explaination
 )
 

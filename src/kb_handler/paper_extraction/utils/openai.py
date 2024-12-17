@@ -3,7 +3,7 @@ import os
 from langchain_openai import AzureChatOpenAI
 from langchain.prompts.prompt import PromptTemplate
 
-from ..config.llm_config import (
+from kb_handler.paper_extraction.config.llm_config import (
     GPT4O_API_TYPE,
     GPT4O_API_VERSION,
     GPT4O_AZURE_ENDPOINT_ENV,

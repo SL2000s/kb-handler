@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from uuid import uuid4
 
-from ...utils.tex_processing import (
+from kb_handler.paper_extraction.utils.tex_processing import (
     statement2motivation,
     tex2html,
 )

@@ -1,9 +1,9 @@
 from typing import Dict
 
-from ..extraction.tex_extraction.arxiv_extraction import ArxivExtraction
-from ..extraction.tex_extraction.base_extraction import BaseExtraction
-from ..data_models.paper import Paper
-from ..data_models.statements.statements import Statements
+from kb_handler.paper_extraction.extraction.tex_extraction.arxiv_extraction import ArxivExtraction
+from kb_handler.paper_extraction.extraction.tex_extraction.base_extraction import BaseExtraction
+from kb_handler.paper_extraction.data_models.paper import Paper
+from kb_handler.paper_extraction.data_models.statements.statements import Statements
 
 
 def extraction2paper(extraction: BaseExtraction):

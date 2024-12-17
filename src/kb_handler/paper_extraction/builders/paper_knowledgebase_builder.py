@@ -1,7 +1,7 @@
 import os
 import warnings
 
-from ..data_models.paper_knowledgebase import PaperKnowledgebase
+from kb_handler.paper_extraction.data_models.paper_knowledgebase import PaperKnowledgebase
 
 
 def load_paper_knowledgebase(path: str = None):

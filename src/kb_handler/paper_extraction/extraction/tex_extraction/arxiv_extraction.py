@@ -1,7 +1,7 @@
 import os
 
-from ..tex_extraction.base_extraction import BaseExtraction
-from ...utils.utils import extract_online_zip, dir_extension_files
+from kb_handler.paper_extraction.extraction.tex_extraction.base_extraction import BaseExtraction
+from kb_handler.paper_extraction.utils.utils import extract_online_zip, dir_extension_files
 
 
 class ArxivExtraction(BaseExtraction):

@@ -1,15 +1,15 @@
 from pydantic import BaseModel, Field
 from typing import List
 
-from .axiom import Axiom
-from .base_provable import Provable
-from .base_statement import Statement
-from .corollary import Corollary
-from .definition import Definition
-from .lemma import Lemma
-from .theorem import Theorem
+from kb_handler.paper_extraction.data_models.statements.axiom import Axiom
+from kb_handler.paper_extraction.data_models.statements.base_provable import Provable
+from kb_handler.paper_extraction.data_models.statements.base_statement import Statement
+from kb_handler.paper_extraction.data_models.statements.corollary import Corollary
+from kb_handler.paper_extraction.data_models.statements.definition import Definition
+from kb_handler.paper_extraction.data_models.statements.lemma import Lemma
+from kb_handler.paper_extraction.data_models.statements.theorem import Theorem
 
-from ...config.config import (
+from kb_handler.paper_extraction.config.config import (
     DEFINITION,
     AXIOM,
     LEMMA,

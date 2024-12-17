@@ -6,11 +6,11 @@ from pydantic import BaseModel, Field
 from typing import Dict, List, Optional
 from uuid import uuid4
 
-from ..builders.statements_builder import build_statements
-from ..config.config import STATEMENT_TYPES_METADATA
-from .statements.base_provable import Provable
-from .statements.statements import Statements
-from ..utils.tex_processing import process_tex_extraction, mathjax_macros, mathjax_environments
+from kb_handler.paper_extraction.builders.statements_builder import build_statements
+from kb_handler.paper_extraction.config.config import STATEMENT_TYPES_METADATA
+from kb_handler.paper_extraction.data_models.statements.base_provable import Provable
+from kb_handler.paper_extraction.data_models.statements.statements import Statements
+from kb_handler.paper_extraction.utils.tex_processing import process_tex_extraction, mathjax_macros, mathjax_environments
 
 
 TEX_LABEL_PATTERN = regex.compile(r'\\label\{([^{}]+)\}')
