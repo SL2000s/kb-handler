@@ -17,8 +17,8 @@ from ..config.config import (
 )
 
 
-class PaperDatabase(BaseModel):
-    db_path: Optional[str] = None
+class PaperKnowledgebase(BaseModel):
+    kb_path: Optional[str] = None
     papers: List[Paper] = Field(default_factory=list)
     extraction_dir: Optional[str] = '/tmp/paper_extraction'
     pages_root: Optional[str] = None
@@ -64,7 +64,7 @@ class PaperDatabase(BaseModel):
                 )
             )
         else:
-            warnings.warn(f'Arxiv paper {arxiv_id} already in database. Skipping it.')
+            warnings.warn(f'Arxiv paper {arxiv_id} already in knowledgebase. Skipping it.')
 
     def add_arxiv_papers(self, arxiv_ids: List[str]):
         for arxiv_id in arxiv_ids:
@@ -195,11 +195,11 @@ class PaperDatabase(BaseModel):
             yield paper.statements
 
     def save(self, path: str = None):
-        path = path or self.db_path
+        path = path or self.kb_path
         if path:
             json_str = self.model_dump_json(indent=4)
             with open(path, 'w') as json_file:
                 json_file.write(json_str)
         else:
-            warnings.warn(f"Could not save database at path '{path}'!")
+            warnings.warn(f"Could not save knowledgebase at path '{path}'!")
         return path
