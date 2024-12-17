@@ -1,3 +1,4 @@
+import os
 import regex
 import urllib
 
@@ -9,7 +10,6 @@ from ..builders.statements_builder import build_statements
 from ..config.config import STATEMENT_TYPES_METADATA
 from .statements.base_provable import Provable
 from .statements.statements import Statements
-from lm_theory.generate_html.html_rendering.jinja2_env_filters import add_root      # TODO: fix this
 from ..utils.tex_processing import process_tex_extraction, mathjax_macros, mathjax_environments
 
 
@@ -18,6 +18,13 @@ TEX_REF_PATTERN = regex.compile(r'(\$\\ref\{([^{}]+)\}\$)')
 TEX_CREF_PATTERN = regex.compile(r'(\$\\cref\{([^{}]+)\}\$)')
 TEX_CCREF_PATTERN = regex.compile(r'(\$\\Cref\{([^{}]+)\}\$)')
 STATEMENT_INTERLINK_TEMPLATE = '<a href="{url}">{text}</a>'
+
+
+def add_root(path, root):  # TODO: look over how paths are constructed -- should not store absolute paths
+    if not path:
+        return path
+    path = os.path.join(root or '', path)
+    return path
 
 
 class Paper(BaseModel):
