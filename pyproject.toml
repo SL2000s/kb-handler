@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "kb-handler"
+version = "0.1.0"
+description = ""
+authors = ["Simon Ljungbeck <simon.ljungbeck@gmail.com>"]
+readme = "README.md"
+packages = [{include = "kb_handler", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^2.10.3"
+langchain-openai = "^0.2.12"
+langchain = "^0.3.12"
+regex = "^2024.11.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
