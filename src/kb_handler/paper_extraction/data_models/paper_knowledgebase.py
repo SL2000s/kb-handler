@@ -178,11 +178,12 @@ class PaperKnowledgebase(BaseModel):
             for statement in self.type_statements(statement_type):
                 yield statement
 
-    def type2statements(self):
+    def type2statements(self, key_form='singular'):
         type2statements = {}
         for statement_type in STATEMENT_TYPES_METADATA:
             type_statements = list(self.type_statements(statement_type))
-            type2statements[statement_type] = type_statements
+            key = STATEMENT_TYPES_METADATA[statement_type][key_form]
+            type2statements[key] = type_statements
         return type2statements
 
     def type_statements(self, statement_type):
