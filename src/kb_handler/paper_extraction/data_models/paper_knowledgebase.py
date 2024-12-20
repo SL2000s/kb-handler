@@ -74,6 +74,12 @@ class PaperKnowledgebase(BaseModel):
             if not self.paper_source_url2paper(paper_dict['paper_url']):
                 self.papers.append(dict_extraction2paper(paper_dict))
 
+    def add_paper(self, paper: Paper, update_statement_nrs: bool=True):
+        if not self.paper_source_url2paper(paper.source_url):
+            self.papers.append(paper)
+            if update_statement_nrs:
+                self.extend_statement_nrs(overwrite=True)
+
     def add_arxiv_paper(self, arxiv_id: str):
         if not self.arxiv_id2paper(arxiv_id):
             self.papers.append(
