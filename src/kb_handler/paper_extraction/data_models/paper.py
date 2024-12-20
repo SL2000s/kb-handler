@@ -1,3 +1,4 @@
+import ast
 import os
 import regex
 import urllib
@@ -128,3 +129,26 @@ class Paper(BaseModel):
         if overwrite or self.mathjax_environments is None:
             environments = mathjax_environments(self.processed_original_tex)
             self.mathjax_environments = environments
+
+    def katex_macros(self):
+        SPLIT_STR = ': '  # TODO: move up or to config
+        def mathjax2katex_macro(mathjax_macro: str):
+            # E.g. "emph: [\"\\\\textit{#1}\", 1]" --> "\\emph", "\\textit{#1}"
+            # E.g. "Tr: \"\\\\operatorname{Tr}\"" --> "\\Tr", "\\operatorname{Tr}"
+            i = mathjax_macro.index(SPLIT_STR)
+            mathjax_key, mathjax_val = mathjax_macro[:i], mathjax_macro[i+len(SPLIT_STR):]
+            mathjax_val = ast.literal_eval(mathjax_val)
+            if isinstance(mathjax_val, list):
+                mathjax_val = mathjax_val[0]
+            mathjax_val.replace('\\\\', '\\')
+            mathjax_key = f'\\{mathjax_key}'
+            return mathjax_key, mathjax_val
+
+        def mathjaxes2katexes_macros(mathjax_macros: List[str]):
+            katex_macros = {}
+            for mathjax_macro in mathjax_macros:
+                key, value = mathjax2katex_macro(mathjax_macro)
+                katex_macros[key] = value
+            return katex_macros
+
+        return mathjaxes2katexes_macros(self.mathjax_macros),

@@ -38,6 +38,25 @@ class PaperKnowledgebase(BaseModel):
                 return statement
         return None
 
+    def statement_with_paper_data(self, statement_id: str):
+        statement = self.statementid2statement(statement_id)
+        paper = self.paperid2paper(statement.paper_id)
+        return {                            # TODO: add in KB-handler package instead!
+            'statement': statement,
+            'paper': {
+                'paper_id': paper.paper_id,
+                'title': paper.title,
+                'authors': paper.authors,
+                'year': paper.year,
+                'source_url': paper.source_url,
+                'bibtex': paper.bibtex,
+                'mathjax_macros': paper.mathjax_macros,
+                'mathjax_environments': paper.mathjax_environments,
+                'katex_macros': paper.katex_macros(),
+                'label2statementid': paper.label2statementid,
+            }
+        }
+
     def paper_source_url2paper(self, url: str):
         for paper in self.papers:
             if paper.source_url == url:
